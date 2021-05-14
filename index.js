@@ -57,3 +57,23 @@ const questions = [
   },
 ];
 
+function prompts() {
+  inquirer.prompt(questions).then((answers) => {
+    if (answers.role == "manager") {
+      let manager = new Manager(
+        answers.name,
+        answers.employeeId,
+        answers.emailAddress,
+        answers.officeNumber
+      );
+      responses.push(manager);
+    }
+    if (answers.askAgain == true) {
+      prompts();
+    } else {
+      generateHtml();
+      return;
+    }
+  });
+}
+
