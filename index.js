@@ -77,3 +77,16 @@ function prompts() {
   });
 }
 
+// creates a function to initialize app
+function init() {
+  prompts();
+}
+
+// call to initialize app
+init();
+
+//export
+module.exports = {
+  init,
+};
+console.log(responses);
